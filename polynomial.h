@@ -65,3 +65,14 @@ link search(list *l, int coef, int pow){ // search for node with given coefficie
 
     return NULL; // return NULL if node is not found
 }
+
+void insertNext(list *l, int coef, int pow, link temp){ // insert node after given node
+    link t = search(l, coef, pow); // search for node with given coefficient and power
+
+    if (t == NULL){ // if node is not found
+        printf("Node not found!\n"); // print error message
+    } else { // if node is found
+        temp->next = t->next; // set next pointer of new node to next pointer of given node
+        t->next = temp; // set next pointer of given node to new node
+    }
+}
