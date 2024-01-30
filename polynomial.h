@@ -76,3 +76,25 @@ void insertNext(list *l, int coef, int pow, link temp){ // insert node after giv
         t->next = temp; // set next pointer of given node to new node
     }
 }
+
+void deleteNode(list *l, int coef, int pow){ // delete node with given coefficient and power
+    link temp = search(l, coef, pow); // search for node with given coefficient and power
+
+    if (temp == NULL){ // if node is not found
+        printf("Node not found!\n"); // print error message
+    } else { // if node is found
+        if (temp == l->head){ // if node is head
+            l->head = temp->next; // set head to next node
+        } else { // if node is not head
+            link t = l->head; // set t to head
+
+            while (t->next != temp){ // while next pointer of t is not equal to temp
+                t = t->next; // set t to next node
+            }
+
+            t->next = temp->next; // set next pointer of t to next pointer of temp
+        }
+
+        free(temp); // free memory of temp
+    }
+}
