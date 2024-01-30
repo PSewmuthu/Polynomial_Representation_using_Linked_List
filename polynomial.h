@@ -45,3 +45,23 @@ void insertRear(list *l, link temp){ // insert node at rear of list
         l->tail = temp; // set tail to new node
     }
 }
+
+link search(list *l, int coef, int pow){ // search for node with given coefficient and power
+    link temp = l->head; // set temp to head
+
+    while (temp != NULL){ // while temp is not NULL
+        if (coef == NULL){ // if coefficient is NULL
+            if (temp->pow == pow){ // if power of temp is equal to given power
+                return temp; // return temp
+            }
+        } else { // if coefficient is not NULL
+            if (temp->coef == coef && temp->pow == pow){ // if coefficient and power of temp is equal to given coefficient and power
+                return temp; // return temp
+            }
+        }
+
+        temp = temp->next; // set temp to next node
+    }
+
+    return NULL; // return NULL if node is not found
+}
