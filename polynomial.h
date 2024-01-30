@@ -8,3 +8,8 @@ struct node { // node structure
     int pow; // power of term
     link next; // pointer to next node
 };
+
+typedef struct {
+    link head; // pointer to head node
+    link tail; // pointer to tail node
+} list; // type definition of list
