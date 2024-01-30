@@ -36,3 +36,12 @@ void insertFront(list *l, link temp){ // insert node at front of list
         l->head = temp; // set head to new node
     }
 }
+
+void insertRear(list *l, link temp){ // insert node at rear of list
+    if (l->head == NULL){ // if list is empty
+        l->head = l->tail = temp; // set head and tail to new node
+    } else { // if list is not empty
+        l->tail->next = temp; // set next pointer of tail to new node
+        l->tail = temp; // set tail to new node
+    }
+}
