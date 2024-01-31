@@ -194,10 +194,18 @@ void display(list *l){ // display polynomial
             if (temp != l->head){ // if temp is not head
                 printf("+"); // print plus sign
             }
-            
-            printf("%dx^%d", temp->coef, temp->pow); // print term with positive coefficient
+
+            if (temp->pow != 0){
+                printf("%dx^%d", temp->coef, temp->pow); // print term with positive coefficient
+            } else {
+                printf("%d", temp->coef); // print term with positive coefficient
+            }
         } else if (temp->coef < 0){ // if coefficient of temp is less than 0
-            printf("%dx^%d", temp->coef, temp->pow); // print term with negative coefficient
+            if (temp->pow != 0){
+                printf("%dx^%d", temp->coef, temp->pow); // print term with positive coefficient
+            } else {
+                printf("%d", temp->coef); // print term with positive coefficient
+            }
         }
 
         temp = temp->next; // set temp to next node
