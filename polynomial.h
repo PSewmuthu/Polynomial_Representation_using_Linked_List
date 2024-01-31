@@ -98,3 +98,22 @@ void deleteNode(list *l, int coef, int pow){ // delete node with given coefficie
         free(temp); // free memory of temp
     }
 }
+
+link maxPow(list *l){ // find node with maximum power
+    link temp = l->head; // set temp to head
+    link max = temp; // set max to temp
+
+    if (temp == NULL){ // if list is empty
+        return NULL; // return NULL
+    }
+
+    while (temp != NULL){ // while temp is not NULL
+        if (temp->pow > max->pow){ // if power of temp is greater than power of max
+            max = temp; // set max to temp
+        }
+
+        temp = temp->next; // set temp to next node
+    }
+
+    return max; // return max
+}
