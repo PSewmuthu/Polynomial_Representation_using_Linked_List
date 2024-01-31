@@ -191,7 +191,11 @@ void display(list *l){ // display polynomial
 
     while (temp != NULL){ // while temp is not NULL
         if (temp->coef > 0){ // if coefficient of temp is greater than 0
-            printf("+%dx^%d", temp->coef, temp->pow); // print term with positive coefficient
+            if (temp != l->head){ // if temp is not head
+                printf("+"); // print plus sign
+            }
+            
+            printf("%dx^%d", temp->coef, temp->pow); // print term with positive coefficient
         } else if (temp->coef < 0){ // if coefficient of temp is less than 0
             printf("%dx^%d", temp->coef, temp->pow); // print term with negative coefficient
         }
