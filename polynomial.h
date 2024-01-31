@@ -185,3 +185,19 @@ list* sub(list *l1, list *l2){ // subtract two polynomials
 
     return l3; // return l3
 }
+
+void display(list *l){ // display polynomial
+    link temp = l->head; // set temp to head
+
+    while (temp != NULL){ // while temp is not NULL
+        if (temp->coef > 0){ // if coefficient of temp is greater than 0
+            printf("+%dx^%d", temp->coef, temp->pow); // print term with positive coefficient
+        } else if (temp->coef < 0){ // if coefficient of temp is less than 0
+            printf("%dx^%d", temp->coef, temp->pow); // print term with negative coefficient
+        }
+
+        temp = temp->next; // set temp to next node
+    }
+
+    printf("\n"); // print new line
+}
