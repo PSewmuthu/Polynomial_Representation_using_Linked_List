@@ -50,7 +50,7 @@ link search(list *l, int coef, int pow){ // search for node with given coefficie
     link temp = l->head; // set temp to head
 
     while (temp != NULL){ // while temp is not NULL
-        if (coef == NULL){ // if coefficient is NULL
+        if (coef == 0){ // if coefficient is 0
             if (temp->pow == pow){ // if power of temp is equal to given power
                 return temp; // return temp
             }
