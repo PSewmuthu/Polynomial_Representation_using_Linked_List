@@ -117,3 +117,37 @@ link maxPow(list *l){ // find node with maximum power
 
     return max; // return max
 }
+
+list* add(list *l1, list *l2){ // add two polynomials
+    list *l3 = (list*)malloc(sizeof(list)); // allocate memory for new list
+    initList(l3); // initialize new list
+
+    link temp1 = l1->head; // set temp1 to head of l1
+    link temp2 = l2->head; // set temp2 to head of l2
+
+    while (temp1 != NULL && temp2 != NULL){ // while temp1 and temp2 are not NULL
+        if (temp1->pow > temp2->pow){ // if power of temp1 is greater than power of temp2
+            insertRear(l3, newNode(temp1->coef, temp1->pow)); // insert node with coefficient and power of temp1 at rear of l3
+            temp1 = temp1->next; // set temp1 to next node
+        } else if (temp1->pow < temp2->pow){ // if power of temp1 is less than power of temp2
+            insertRear(l3, newNode(temp2->coef, temp2->pow)); // insert node with coefficient and power of temp2 at rear of l3
+            temp2 = temp2->next; // set temp2 to next node
+        } else { // if power of temp1 is equal to power of temp2
+            insertRear(l3, newNode(temp1->coef + temp2->coef, temp1->pow)); // insert node with sum of coefficients and power of temp1 at rear of l3
+            temp1 = temp1->next; // set temp1 to next node
+            temp2 = temp2->next; // set temp2 to next node
+        }
+    }
+
+    while (temp1 != NULL){ // while temp1 is not NULL
+        insertRear(l3, newNode(temp1->coef, temp1->pow)); // insert node with coefficient and power of temp1 at rear of l3
+        temp1 = temp1->next; // set temp1 to next node
+    }
+
+    while (temp2 != NULL){ // while temp2 is not NULL
+        insertRear(l3, newNode(temp2->coef, temp2->pow)); // insert node with coefficient and power of temp2 at rear of l3
+        temp2 = temp2->next; // set temp2 to next node
+    }
+
+    return l3; // return l3
+}
