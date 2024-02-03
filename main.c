@@ -18,6 +18,8 @@ int menu(){ // function to display menu
     while(keyPressed != 13){ // while keyPressed is not equal to 13
         system("cls"); // clear screen
 
+        printf("================Polynomial Functions Calculator================\n\n"); // print title
+
         arrowHere(1, position); printf("1. Insert values from the front side.\n"); // print menu option 1
         arrowHere(2, position); printf("2. Insert values from the rear side.\n"); // print menu option 2
         arrowHere(3, position); printf("3. Insert a value after an existing value.\n"); // print menu option 3
