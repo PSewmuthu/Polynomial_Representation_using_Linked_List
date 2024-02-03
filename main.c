@@ -1,4 +1,46 @@
-#include "polynomial.h"
+#include <stdio.h> // include standard input output header file
+#include "polynomial.h" // include user defined header file
+
+void arrowHere(int realPosition, int arrowPosition){ // function to print arrow
+    if(realPosition == arrowPosition){ // if realPosition is equal to arrowPosition
+        printf("------>> "); // print arrow indicating current position
+    } else { // if realPosition is not equal to arrowPosition
+        printf("         "); // print spaces
+    }
+}
+
+int menu(){ // function to display menu
+    system("cls"); // clear screen
+
+    int position = 1; // declare and initialize position to 1
+    int keyPressed = 0; // declare and initialize keyPressed to 0
+
+    while(keyPressed != 13){ // while keyPressed is not equal to 13
+        system("cls"); // clear screen
+
+        arrowHere(1, position); printf("1. Insert values from the front side.\n"); // print menu option 1
+        arrowHere(2, position); printf("2. Insert values from the rear side.\n"); // print menu option 2
+        arrowHere(3, position); printf("3. Insert a value after an existing value.\n"); // print menu option 3
+        arrowHere(4, position); printf("4. Search an element.\n"); // print menu option 4
+        arrowHere(5, position); printf("5. Delete an element.\n"); // print menu option 5
+        arrowHere(6, position); printf("6. Show the maximum power.\n"); // print menu option 6
+        arrowHere(7, position); printf("7. Add two polynomial functions.\n"); // print menu option 7
+        arrowHere(8, position); printf("8. Substract two polynomial functions.\n"); // print menu option 8
+        arrowHere(9, position); printf("9. Quite\n"); // print menu option 9
+
+        keyPressed = getch(); // get key pressed
+
+        if(keyPressed == 80 && position != 9){ // if down arrow key is pressed and position is not 4
+            position++; // increment position
+        } else if (keyPressed == 72 && position != 1){ // if up arrow key is pressed and position is not 1
+            position--; // decrement position
+        } else { // if any other key is pressed or position is 1 or 4
+            position = position; // set position to position
+        }
+    }
+
+    return position; // return position
+}
 
 int main(){
     list *l1, *l2, *l3; // declare three lists
