@@ -195,16 +195,20 @@ void display(list *l){ // display polynomial
                 printf("+"); // print plus sign
             }
 
-            if (temp->pow != 0){
-                printf("%dx^%d", temp->coef, temp->pow); // print term with positive coefficient
-            } else {
+            if ((temp->pow != 0) && (temp->pow != 1)){ // if power of temp is not 0 and 1
+                printf("%dX^%d", temp->coef, temp->pow); // print term with positive coefficient
+            } else if (temp->pow == 0){ // if power of temp is 0
                 printf("%d", temp->coef); // print term with positive coefficient
+            } else{
+                printf("%dX", temp->coef); // print term with positive coefficient
             }
         } else if (temp->coef < 0){ // if coefficient of temp is less than 0
-            if (temp->pow != 0){
-                printf("%dx^%d", temp->coef, temp->pow); // print term with positive coefficient
-            } else {
+            if ((temp->pow != 0) && (temp->pow != 1)){ // if power of temp is not 0 and 1
+                printf("%dX^%d", temp->coef, temp->pow); // print term with positive coefficient
+            } else if(temp->pow == 0){ // if power of temp is 0
                 printf("%d", temp->coef); // print term with positive coefficient
+            } else {
+                printf("%dX", temp->coef); // print term with positive coefficient
             }
         }
 
