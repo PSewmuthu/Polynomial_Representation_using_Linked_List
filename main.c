@@ -87,7 +87,7 @@ int main(){
 
             case 2: // if position is 2
                 printf("Enter the coefficient and power of the polynomial with space separation for each term. Enter -1 to stop.\n"); // print message
-                
+
                 int coef, pow, i=1; // declare coef and pow
 
                 while(coef != -1){ // while coef is not equal to -1
@@ -104,6 +104,35 @@ int main(){
                 printf("\n\nEntered polynomial is: "); // print message
                 display(l1); // display polynomial
                 printf("\n\n"); // print new line
+
+                break; // break
+
+            case 3: // if position is 3
+                printf("For which list do you want to insert a value after an existing value? (1/2): "); // print message
+                
+                int old_coef, old_pow, new_coef, new_pow, listNum; // declare coef and pow
+
+                scanf("%d", &listNum); // get listNum from user
+
+                printf("\nAfter which element do you want to insert a value? "); // print message
+                scanf("%d %d", &old_coef, &old_pow); // get coef and pow from user
+
+                printf("\nEnter the coefficient and power of the new term: "); // print message
+                scanf("%d %d", &new_coef, &new_pow); // get coef and pow from user
+
+                if (listNum == 1){ // if listNum is 1
+                    insertNext(l1, old_coef, old_pow, newNode(new_coef, new_pow)); // insert next
+
+                    printf("\nUpdated polynomial is: "); // print message
+                    display(l1); // display polynomial
+                    printf("\n\n"); // print new line
+                } else { // if listNum is not 1
+                    insertNext(l2, old_coef, old_pow, newNode(new_coef, new_pow)); // insert next
+
+                    printf("\nUpdated polynomial is: "); // print message
+                    display(l2); // display polynomial
+                    printf("\n\n"); // print new line
+                }
 
                 break; // break
         }
