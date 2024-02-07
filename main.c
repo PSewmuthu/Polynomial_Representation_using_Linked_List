@@ -222,7 +222,7 @@ int main(){
                 printf("From which polynomial do you want to subtract another polynomial? (1/2): "); // print message
 
                 int listNum; // declare listNum
-                
+
                 scanf("%d", &listNum); // get listNum from the user
 
                 if (listNum == 1){
@@ -236,6 +236,9 @@ int main(){
                 printf("\n\n"); // print new line
 
                 break; // break
+
+            default: // if position is 9
+                printf("Goodbye!\n"); // print goodbye
         }
 
         printf("\n\n"); // print new line
