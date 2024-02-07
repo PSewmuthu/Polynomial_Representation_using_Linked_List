@@ -84,6 +84,28 @@ int main(){
                 printf("\n\n"); // print new line
 
                 break; // break
+
+            case 2: // if position is 2
+                printf("Enter the coefficient and power of the polynomial with space separation for each term. Enter -1 to stop.\n"); // print message
+                
+                int coef, pow, i=1; // declare coef and pow
+
+                while(coef != -1){ // while coef is not equal to -1
+                    printf("Enter the values for term %d: ", i); // print message
+                    scanf("%d %d", &coef, &pow); // get coef and pow from user
+
+                    if(coef != -1){ // if coef is not equal to -1
+                        insertRear(l2, newNode(coef, pow)); // insert from front
+                    }
+
+                    i++; // increment i
+                }
+
+                printf("\n\nEntered polynomial is: "); // print message
+                display(l1); // display polynomial
+                printf("\n\n"); // print new line
+
+                break; // break
         }
 
         printf("\n\n"); // print new line
