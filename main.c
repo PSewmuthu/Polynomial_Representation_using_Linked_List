@@ -169,7 +169,7 @@ int main(){
 
             case 5: // if position is 5
                 printf("From which list do you want to delete an element? (1/2): "); // print message
-                
+
                 int coef, pow, listNum; // declare coef and pow
 
                 scanf("%d", &listNum); // get listNum from the user
@@ -189,6 +189,21 @@ int main(){
                     printf("\nUpdated polynomial is: "); // print message
                     display(l2); // display polynomial
                     printf("\n\n"); // print new line
+                }
+
+                break; // break
+
+            case 6: // if position is 6
+                printf("For which list do you want to show the maximum power? (1/2): "); // print message
+                
+                int listNum; // declare listNum
+
+                scanf("%d", &listNum); // get listNum from the user
+
+                if (listNum == 1){
+                    printf("\nMaximum power is: %d\n\n", maxPow(l1)->pow); // print maximum power
+                } else {
+                    printf("\nMaximum power is: %d\n\n", maxPow(l2)->pow); // print maximum power
                 }
 
                 break; // break
