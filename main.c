@@ -138,7 +138,7 @@ int main(){
 
             case 4: // if position is 4
                 printf("For which list do you want to search an element? (1/2): "); // print message
-                
+
                 int coef, pow, listNum; // declare coef and pow
 
                 scanf("%d", &listNum); // get listNum from the user
@@ -164,6 +164,32 @@ int main(){
                 }
 
                 printf("\n"); // print new line
+
+                break; // break
+
+            case 5: // if position is 5
+                printf("From which list do you want to delete an element? (1/2): "); // print message
+                
+                int coef, pow, listNum; // declare coef and pow
+
+                scanf("%d", &listNum); // get listNum from the user
+
+                printf("\nEnter the coefficient and power of the term you want to delete: "); // print message
+                scanf("%d %d", &coef, &pow); // get coef and pow from the user
+
+                if (listNum == 1){
+                    deleteNode(l1, coef, pow); // delete node
+
+                    printf("\nUpdated polynomial is: "); // print message
+                    display(l1); // display polynomial
+                    printf("\n\n"); // print new line
+                } else {
+                    deleteNode(l2, coef, pow); // delete node
+
+                    printf("\nUpdated polynomial is: "); // print message
+                    display(l2); // display polynomial
+                    printf("\n\n"); // print new line
+                }
 
                 break; // break
         }
