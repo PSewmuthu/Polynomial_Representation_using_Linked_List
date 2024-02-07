@@ -195,7 +195,7 @@ int main(){
 
             case 6: // if position is 6
                 printf("For which list do you want to show the maximum power? (1/2): "); // print message
-                
+
                 int listNum; // declare listNum
 
                 scanf("%d", &listNum); // get listNum from the user
@@ -205,6 +205,16 @@ int main(){
                 } else {
                     printf("\nMaximum power is: %d\n\n", maxPow(l2)->pow); // print maximum power
                 }
+
+                break; // break
+
+            case 7: // if position is 7
+                printf("Resultant polynomial is: "); // print message
+                
+                l3 = add(l1, l2); // add polynomials
+                
+                display(l3); // display polynomial
+                printf("\n\n"); // print new line
 
                 break; // break
         }
