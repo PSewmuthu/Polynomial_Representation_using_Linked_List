@@ -212,7 +212,26 @@ int main(){
                 printf("Resultant polynomial is: "); // print message
                 
                 l3 = add(l1, l2); // add polynomials
+
+                display(l3); // display polynomial
+                printf("\n\n"); // print new line
+
+                break; // break
+
+            case 8: // if position is 8
+                printf("From which polynomial do you want to subtract another polynomial? (1/2): "); // print message
+
+                int listNum; // declare listNum
                 
+                scanf("%d", &listNum); // get listNum from the user
+
+                if (listNum == 1){
+                    l3 = subtract(l1, l2); // subtract polynomials
+                } else {
+                    l3 = subtract(l2, l1); // subtract polynomials
+                }
+
+                printf("Resultant polynomial is: "); // print message
                 display(l3); // display polynomial
                 printf("\n\n"); // print new line
 
