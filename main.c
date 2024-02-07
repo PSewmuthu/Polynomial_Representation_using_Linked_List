@@ -135,6 +135,37 @@ int main(){
                 }
 
                 break; // break
+
+            case 4: // if position is 4
+                printf("For which list do you want to search an element? (1/2): "); // print message
+                
+                int coef, pow, listNum; // declare coef and pow
+
+                scanf("%d", &listNum); // get listNum from the user
+
+                printf("\nEnter the coefficient of the term you want to search: "); // print message
+                scanf("%d", &coef); // get coefficient from the user
+
+                printf("\nEnter the power of the term you want to search: "); // print message
+                scanf("%d", &pow); // get power from the user
+
+                if (listNum == 1){
+                    if (search(l1, coef, pow) == NULL){
+                        printf("\n\nElement not found!\n");
+                    } else {
+                        printf("\n\nElement found!\n");
+                    }
+                } else {
+                    if (search(l2, coef, pow) == NULL){
+                        printf("\n\nElement not found!\n");
+                    } else {
+                        printf("\n\nElement found!\n");
+                    }
+                }
+
+                printf("\n"); // print new line
+
+                break; // break
         }
 
         printf("\n\n"); // print new line
