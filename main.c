@@ -64,55 +64,61 @@ int main(){
 
         switch(position){ // switch position
             case 1: // if position is 1
-                printf("Enter the coefficient and power of the polynomial with space separation(<coefficient> <power>) for each term. Enter -1 to stop.\n"); // print message
+                printf("Enter the coefficient and power of the polynomial with space separation(<coefficient> <power>) for each term. Enter -1 -1 to stop.\n"); // print message
 
-                int coef, pow, i=1; // declare coef and pow
+                int coef1, pow1, i1=1; // declare coef and pow
 
-                while(coef != -1){ // while coef is not equal to -1
-                    printf("Enter the values for term %d: ", i); // print message
-                    scanf("%d %d", &coef, &pow); // get coef and pow from user
+                while(coef1 != -1 && pow1 != -1){ // while coef is not equal to -1
+                    printf("Enter the values for term %d: ", i1); // print message
+                    scanf("%d %d", &coef1, &pow1); // get coef and pow from user
 
-                    if(coef != -1){ // if coef is not equal to -1
-                        insertFront(l1, newNode(coef, pow)); // insert from front
+                    if(coef1 != -1 && pow1 != -1){ // if coef is not equal to -1
+                        insertFront(l1, newNode(coef1, pow1)); // insert from front
                     }
 
-                    i++; // increment i
+                    i1++; // increment i
                 }
 
                 printf("\n\nEntered polynomial is: "); // print message
                 display(l1); // display polynomial
                 printf("\n\n"); // print new line
+
+                printf("Press any key to go back to the menu..."); // print message
+                getch(); // get i from the user
 
                 break; // break
 
             case 2: // if position is 2
-                printf("Enter the coefficient and power of the polynomial with space separation for each term. Enter -1 to stop.\n"); // print message
+                printf("Enter the coefficient and power of the polynomial with space separation for each term. Enter -1 -1 to stop.\n"); // print message
 
-                int coef, pow, i=1; // declare coef and pow
+                int coef2, pow2, i2=1; // declare coef and pow
 
-                while(coef != -1){ // while coef is not equal to -1
-                    printf("Enter the values for term %d: ", i); // print message
-                    scanf("%d %d", &coef, &pow); // get coef and pow from user
+                while(coef2 != -1 && pow2 != -1){ // while coef is not equal to -1
+                    printf("Enter the values for term %d: ", i2); // print message
+                    scanf("%d %d", &coef2, &pow2); // get coef and pow from user
 
-                    if(coef != -1){ // if coef is not equal to -1
-                        insertRear(l2, newNode(coef, pow)); // insert from front
+                    if(coef2 != -1 && pow2 != -1){ // if coef is not equal to -1
+                        insertRear(l2, newNode(coef2, pow2)); // insert from front
                     }
 
-                    i++; // increment i
+                    i2++; // increment i
                 }
 
                 printf("\n\nEntered polynomial is: "); // print message
                 display(l1); // display polynomial
                 printf("\n\n"); // print new line
+
+                printf("Press any key to go back to the menu..."); // print message
+                getch(); // get i from the user
 
                 break; // break
 
             case 3: // if position is 3
                 printf("For which list do you want to insert a value after an existing value? (1/2): "); // print message
                 
-                int old_coef, old_pow, new_coef, new_pow, listNum; // declare coef and pow
+                int old_coef, old_pow, new_coef, new_pow, listNum3; // declare coef and pow
 
-                scanf("%d", &listNum); // get listNum from user
+                scanf("%d", &listNum3); // get listNum from user
 
                 printf("\nAfter which element do you want to insert a value? "); // print message
                 scanf("%d %d", &old_coef, &old_pow); // get coef and pow from user
@@ -120,7 +126,7 @@ int main(){
                 printf("\nEnter the coefficient and power of the new term: "); // print message
                 scanf("%d %d", &new_coef, &new_pow); // get coef and pow from user
 
-                if (listNum == 1){ // if listNum is 1
+                if (listNum3 == 1){ // if listNum is 1
                     insertNext(l1, old_coef, old_pow, newNode(new_coef, new_pow)); // insert next
 
                     printf("\nUpdated polynomial is: "); // print message
@@ -134,29 +140,32 @@ int main(){
                     printf("\n\n"); // print new line
                 }
 
+                printf("Press any key to go back to the menu..."); // print message
+                getch(); // get i from the user
+
                 break; // break
 
             case 4: // if position is 4
                 printf("For which list do you want to search an element? (1/2): "); // print message
 
-                int coef, pow, listNum; // declare coef and pow
+                int coef4, pow4, listNum4; // declare coef and pow
 
-                scanf("%d", &listNum); // get listNum from the user
+                scanf("%d", &listNum4); // get listNum from the user
 
                 printf("\nEnter the coefficient of the term you want to search: "); // print message
-                scanf("%d", &coef); // get coefficient from the user
+                scanf("%d", &coef4); // get coefficient from the user
 
                 printf("\nEnter the power of the term you want to search: "); // print message
-                scanf("%d", &pow); // get power from the user
+                scanf("%d", &pow4); // get power from the user
 
-                if (listNum == 1){
-                    if (search(l1, coef, pow) == NULL){
+                if (listNum4 == 1){
+                    if (search(l1, coef4, pow4) == NULL){
                         printf("\n\nElement not found!\n");
                     } else {
                         printf("\n\nElement found!\n");
                     }
                 } else {
-                    if (search(l2, coef, pow) == NULL){
+                    if (search(l2, coef4, pow4) == NULL){
                         printf("\n\nElement not found!\n");
                     } else {
                         printf("\n\nElement found!\n");
@@ -165,46 +174,55 @@ int main(){
 
                 printf("\n"); // print new line
 
+                printf("Press any key to go back to the menu..."); // print message
+                getch(); // get i from the user
+
                 break; // break
 
             case 5: // if position is 5
                 printf("From which list do you want to delete an element? (1/2): "); // print message
 
-                int coef, pow, listNum; // declare coef and pow
+                int coef5, pow5, listNum5; // declare coef and pow
 
-                scanf("%d", &listNum); // get listNum from the user
+                scanf("%d", &listNum5); // get listNum from the user
 
                 printf("\nEnter the coefficient and power of the term you want to delete: "); // print message
-                scanf("%d %d", &coef, &pow); // get coef and pow from the user
+                scanf("%d %d", &coef5, &pow5); // get coef and pow from the user
 
-                if (listNum == 1){
-                    deleteNode(l1, coef, pow); // delete node
+                if (listNum5 == 1){
+                    deleteNode(l1, coef5, pow5); // delete node
 
                     printf("\nUpdated polynomial is: "); // print message
                     display(l1); // display polynomial
                     printf("\n\n"); // print new line
                 } else {
-                    deleteNode(l2, coef, pow); // delete node
+                    deleteNode(l2, coef5, pow5); // delete node
 
                     printf("\nUpdated polynomial is: "); // print message
                     display(l2); // display polynomial
                     printf("\n\n"); // print new line
                 }
 
+                printf("Press any key to go back to the menu..."); // print message
+                getch(); // get i from the user
+
                 break; // break
 
             case 6: // if position is 6
                 printf("For which list do you want to show the maximum power? (1/2): "); // print message
 
-                int listNum; // declare listNum
+                int listNum6; // declare listNum
 
-                scanf("%d", &listNum); // get listNum from the user
+                scanf("%d", &listNum6); // get listNum from the user
 
-                if (listNum == 1){
+                if (listNum6 == 1){
                     printf("\nMaximum power is: %d\n\n", maxPow(l1)->pow); // print maximum power
                 } else {
                     printf("\nMaximum power is: %d\n\n", maxPow(l2)->pow); // print maximum power
                 }
+
+                printf("Press any key to go back to the menu..."); // print message
+                getch(); // get i from the user
 
                 break; // break
 
@@ -216,24 +234,30 @@ int main(){
                 display(l3); // display polynomial
                 printf("\n\n"); // print new line
 
+                printf("Press any key to go back to the menu..."); // print message
+                getch(); // get i from the user
+
                 break; // break
 
             case 8: // if position is 8
                 printf("From which polynomial do you want to subtract another polynomial? (1/2): "); // print message
 
-                int listNum; // declare listNum
+                int listNum8; // declare listNum
 
-                scanf("%d", &listNum); // get listNum from the user
+                scanf("%d", &listNum8); // get listNum from the user
 
-                if (listNum == 1){
-                    l3 = subtract(l1, l2); // subtract polynomials
+                if (listNum8 == 1){
+                    l3 = sub(l1, l2); // subtract polynomials
                 } else {
-                    l3 = subtract(l2, l1); // subtract polynomials
+                    l3 = sub(l2, l1); // subtract polynomials
                 }
 
                 printf("Resultant polynomial is: "); // print message
                 display(l3); // display polynomial
                 printf("\n\n"); // print new line
+
+                printf("Press any key to go back to the menu..."); // print message
+                getch(); // get i from the user
 
                 break; // break
 
