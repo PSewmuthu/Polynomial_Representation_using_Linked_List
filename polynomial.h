@@ -50,7 +50,7 @@ link search(list *l, int coef, int pow){ // search for node with given coefficie
     link temp = l->head; // set temp to head
 
     while (temp != NULL){ // while temp is not NULL
-        if (coef == NULL){ // if coefficient is NULL
+        if (coef == 0){ // if coefficient is 0
             if (temp->pow == pow){ // if power of temp is equal to given power
                 return temp; // return temp
             }
@@ -97,4 +97,123 @@ void deleteNode(list *l, int coef, int pow){ // delete node with given coefficie
 
         free(temp); // free memory of temp
     }
+}
+
+link maxPow(list *l){ // find node with maximum power
+    link temp = l->head; // set temp to head
+    link max = temp; // set max to temp
+
+    if (temp == NULL){ // if list is empty
+        return NULL; // return NULL
+    }
+
+    while (temp != NULL){ // while temp is not NULL
+        if (temp->pow > max->pow){ // if power of temp is greater than power of max
+            max = temp; // set max to temp
+        }
+
+        temp = temp->next; // set temp to next node
+    }
+
+    return max; // return max
+}
+
+list* add(list *l1, list *l2){ // add two polynomials
+    list *l3 = (list*)malloc(sizeof(list)); // allocate memory for new list
+    initList(l3); // initialize new list
+
+    link temp1 = l1->head; // set temp1 to head of l1
+    link temp2 = l2->head; // set temp2 to head of l2
+
+    while (temp1 != NULL && temp2 != NULL){ // while temp1 and temp2 are not NULL
+        if (temp1->pow > temp2->pow){ // if power of temp1 is greater than power of temp2
+            insertRear(l3, newNode(temp1->coef, temp1->pow)); // insert node with coefficient and power of temp1 at rear of l3
+            temp1 = temp1->next; // set temp1 to next node
+        } else if (temp1->pow < temp2->pow){ // if power of temp1 is less than power of temp2
+            insertRear(l3, newNode(temp2->coef, temp2->pow)); // insert node with coefficient and power of temp2 at rear of l3
+            temp2 = temp2->next; // set temp2 to next node
+        } else { // if power of temp1 is equal to power of temp2
+            insertRear(l3, newNode(temp1->coef + temp2->coef, temp1->pow)); // insert node with sum of coefficients and power of temp1 at rear of l3
+            temp1 = temp1->next; // set temp1 to next node
+            temp2 = temp2->next; // set temp2 to next node
+        }
+    }
+
+    while (temp1 != NULL){ // while temp1 is not NULL
+        insertRear(l3, newNode(temp1->coef, temp1->pow)); // insert node with coefficient and power of temp1 at rear of l3
+        temp1 = temp1->next; // set temp1 to next node
+    }
+
+    while (temp2 != NULL){ // while temp2 is not NULL
+        insertRear(l3, newNode(temp2->coef, temp2->pow)); // insert node with coefficient and power of temp2 at rear of l3
+        temp2 = temp2->next; // set temp2 to next node
+    }
+
+    return l3; // return l3
+}
+
+list* sub(list *l1, list *l2){ // subtract two polynomials
+    list *l3 = (list*)malloc(sizeof(list)); // allocate memory for new list
+    initList(l3); // initialize new list
+
+    link temp1 = l1->head; // set temp1 to head of l1
+    link temp2 = l2->head; // set temp2 to head of l2
+
+    while (temp1 != NULL && temp2 != NULL){ // while temp1 and temp2 are not NULL
+        if (temp1->pow > temp2->pow){ // if power of temp1 is greater than power of temp2
+            insertRear(l3, newNode(temp1->coef, temp1->pow)); // insert node with coefficient and power of temp1 at rear of l3
+            temp1 = temp1->next; // set temp1 to next node
+        } else if (temp1->pow < temp2->pow){ // if power of temp1 is less than power of temp2
+            insertRear(l3, newNode(-temp2->coef, temp2->pow)); // insert node with negative coefficient and power of temp2 at rear of l3
+            temp2 = temp2->next; // set temp2 to next node
+        } else { // if power of temp1 is equal to power of temp2
+            insertRear(l3, newNode(temp1->coef - temp2->coef, temp1->pow)); // insert node with difference of coefficients and power of temp1 at rear of l3
+            temp1 = temp1->next; // set temp1 to next node
+            temp2 = temp2->next; // set temp2 to next node
+        }
+    }
+
+    while (temp1 != NULL){ // while temp1 is not NULL
+        insertRear(l3, newNode(temp1->coef, temp1->pow)); // insert node with coefficient and power of temp1 at rear of l3
+        temp1 = temp1->next; // set temp1 to next node
+    }
+
+    while (temp2 != NULL){ // while temp2 is not NULL
+        insertRear(l3, newNode(-temp2->coef, temp2->pow)); // insert node with negative coefficient and power of temp2 at rear of l3
+        temp2 = temp2->next; // set temp2 to next node
+    }
+
+    return l3; // return l3
+}
+
+void display(list *l){ // display polynomial
+    link temp = l->head; // set temp to head
+
+    while (temp != NULL){ // while temp is not NULL
+        if (temp->coef > 0){ // if coefficient of temp is greater than 0
+            if (temp != l->head){ // if temp is not head
+                printf("+"); // print plus sign
+            }
+
+            if ((temp->pow != 0) && (temp->pow != 1)){ // if power of temp is not 0 and 1
+                printf("%dX^%d", temp->coef, temp->pow); // print term with positive coefficient
+            } else if (temp->pow == 0){ // if power of temp is 0
+                printf("%d", temp->coef); // print term with positive coefficient
+            } else{
+                printf("%dX", temp->coef); // print term with positive coefficient
+            }
+        } else if (temp->coef < 0){ // if coefficient of temp is less than 0
+            if ((temp->pow != 0) && (temp->pow != 1)){ // if power of temp is not 0 and 1
+                printf("%dX^%d", temp->coef, temp->pow); // print term with positive coefficient
+            } else if(temp->pow == 0){ // if power of temp is 0
+                printf("%d", temp->coef); // print term with positive coefficient
+            } else {
+                printf("%dX", temp->coef); // print term with positive coefficient
+            }
+        }
+
+        temp = temp->next; // set temp to next node
+    }
+
+    printf("\n"); // print new line
 }
