@@ -105,7 +105,7 @@ int main(){
                 }
 
                 printf("\n\nEntered polynomial is: "); // print message
-                display(l1); // display polynomial
+                display(l2); // display polynomial
                 printf("\n\n"); // print new line
 
                 printf("Press any key to go back to the menu..."); // print message
